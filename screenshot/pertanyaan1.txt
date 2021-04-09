@@ -1,0 +1,16 @@
+pertanyaan1.txt
+
+a. user01 hanya boleh membaca table A1
+GRANT SELECT ON A.A1 TO 'user01'@'localhost';
+
+b. user02 bisa mengakses table A2 dan hanya boleh membaca table A1
+GRANT ALL PRIVILEGES ON A.A2 TO 'user02'@'localhost';
+GRANT SELECT ON A.A1 TO 'user1'@'localhost';
+
+c. user03 bisa mengakses tabel A3 dan hanya boleh membaca tabel A1 dan A2
+GRANT ALL PRIVILEGES ON A.A3 TO 'user03'@'localhost';
+GRANT SELECT ON A.A1 TO 'user03'@'localhost';
+GRANT SELECT ON A.A2 TO 'user03'@'localhost';
+
+d. user04
+GRANT ALL PRIVILEGES ON A.* TO 'user04'@'localhost';	

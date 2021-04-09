@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$route['default_controller'] = 'api/Home';
+$route['default_controller'] = 'Home';
 $route['dashboard'] = 'dashboard/Home';
 $route['dashboard/notification/mark_all_read'] = 'dashboard/notification/mark_all_read';
 $route['dashboard/notification/delete'] = 'dashboard/notification/delete';
