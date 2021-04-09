@@ -17,7 +17,7 @@ class Karyawan extends RESTController
     function get_all_get()
     {
         $data = $this->karyawan_model->get_all($this->get());
-        foreach($data["EMP"] as $index => $d){
+        foreach ($data["EMP"] as $index => $d) {
             $data["EMP"][$index]['DETAIL_JABATAN'] = $this->karyawan_model->get_detail_jabatan($d['KD_JABATAN']);
             $data["EMP"][$index]['FAMILY'] = $this->karyawan_model->get_detail_family($d['NO_BADGE']);
         }
@@ -30,4 +30,9 @@ class Karyawan extends RESTController
         $this->response($data, RESTController::HTTP_OK);
     }
 
+    function search_get()
+    {
+        $data = $this->karyawan_model->search($this->get());
+        $this->response($data, RESTController::HTTP_OK);
+    }
 }

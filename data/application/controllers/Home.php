@@ -49,7 +49,24 @@ class Home extends MY_Controller
 
     public function cari()
     {
+        if (isset($_POST) && count($_POST) > 0) {
+            $data = [
+                'query' => [
+                    'X-API-KEY' => $this->app_key,
+                    'cari' => strip_tags($this->input->post('nama'))
+                ],
+            ];
+            $read_data = $this->client->request('GET', 'karyawan/search/', $data);
+        } else {
+            $data = ['query' => ['X-API-KEY' => $this->app_key]];
+            $read_data = $this->client->request('GET', 'karyawan/get_all/', $data);
+        }
+
+        if ($read_data->getStatusCode() == '200') {
+            $result = json_decode($read_data->getBody()->getContents(), TRUE);
+            $this->data['karyawan'] = $result['EMP'];
+        }
         $this->data['page_title'] = "Cari Data";
-        $this->load->view('web/home', $this->data);
+        $this->load->view('web/cari', $this->data);
     }
 }
