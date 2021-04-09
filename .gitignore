@@ -1,0 +1,20 @@
+*/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+#codeigniter 3
+data/application/logs/*
+!data/application/logs/index.html
+uploads/*
+!uploads/index.html
+uploads/lampiran/*
+!uploads/lampiran/index.html
+uploads/images/*
+!uploads/images/index.html
+uploads/profile/*
+!uploads/profile/index.html
+!data/application/logs/.htaccess
+/vendor/
